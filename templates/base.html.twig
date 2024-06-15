@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Symfony Docker{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-RPf+v6THp1em2F2tGKFL6FqcOL/8G7I9ZQxXfCGHa6yAnbGg2e1Mg0ERBM26BjPdNAsPvGWw8aVW2ygSx4+8Ow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block stylesheets %}{% endblock %}
+    <style>
+        /* Custom styles for dark mode */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+        .navbar-dark .navbar-brand {
+            color: #fff;
+        }
+        
+        .jumbotron {
+            background-color: #fff; /* Light mode background color */
+            color: #000; /* Light mode text color */
+        }
+
+        body.dark-mode .jumbotron {
+            background-color: #333; /* Dark mode background color */
+            color: #fff; /* Dark mode text color */
+        }
+    </style>
+</head>
+<body>
+    <header class="container mt-4 mb-4">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{ path('home') }}">Symfony Docker</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button class="btn btn-link text-light" id="darkModeToggle">
+                            <i class="fas fa-moon"></i> Dark Mode
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+
+    <footer class="container mt-4 mb-4">
+        <p>&copy; {{ 'now'|date('Y') }} Symfony Docker. All rights reserved.</p>
+    </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-ZnwayKIQg3TtdjfkgTgRxX+BeC4f/+U90FVlB5vZpRGyGJ8fjy8aI92t8+1zX3IO" crossorigin="anonymous"></script>
+    <script>
+        // Dark Mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+    {% block javascripts %}{% endblock %}
+</body>
+</html>

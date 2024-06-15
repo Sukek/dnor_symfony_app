@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Symfony Docker</h1>
+        <p class="lead">Started with <a href="https://github.com/dunglas/symfony-docker" target="_blank">dunglas/symfony-docker</a>, many thanks to them!</p>
+        <p>A <a href="https://www.docker.com/" target="_blank">Docker</a>-based installer and runtime for the <a href="https://symfony.com" target="_blank">Symfony</a> web framework, with <a href="https://frankenphp.dev" target="_blank">FrankenPHP</a> and <a href="https://caddyserver.com/" target="_blank">Caddy</a> inside!</p>
+        <hr class="my-4">
+        <p>Check out the steps below to get started:</p>
+        <ol>
+            <li>If not already done, <a href="https://docs.docker.com/compose/install/" target="_blank">install Docker Compose</a> (v2.10+)</li>
+            <li>Run <code>docker compose build --no-cache</code> to build fresh images</li>
+            <li>Run <code>docker compose up --pull always -d --wait</code> to set up and start a fresh Symfony project</li>
+            <li>Open <code>https://localhost</code> in your favorite web browser and <a href="https://stackoverflow.com/a/15076602/1352334" target="_blank">accept the auto-generated TLS certificate</a></li>
+            <li>Run <code>docker compose down --remove-orphans</code> to stop the Docker containers.</li>
+        </ol>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Docs</h2>
+            <p><a href="docs/main.md" target="_blank">Options available</a></p>
+        </div>
+        <div class="col-md-6">
+            <h2>Credits</h2>
+            <p><a href="https://github.com/dunglas/symfony-docker" target="_blank">dunglas/symfony-docker</a> Created by <a href="https://dunglas.dev" target="_blank">Kévin Dunglas</a>, co-maintained by <a href="https://twitter.com/maxhelias" target="_blank">Maxime Helias</a> and sponsored by <a href="https://les-tilleuls.coop" target="_blank">Les-Tilleuls.coop</a>.</p>
+            <p>Original idea for this repo: <a href="https://github.com/Dani2033" target="_blank">Daniel Rubio Fernández</a></p>
+        </div>
+    </div>
+{% endblock %}
